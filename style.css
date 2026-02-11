@@ -1,206 +1,50 @@
 /* ================================
-   BÉKA MARIA — Premium Artist Site
+   BÉKA MARIA — Artist Site
    ================================ */
 
-/* ---- Selection ---- */
+html {
+    scroll-behavior: smooth;
+}
+
 ::selection {
-    background: rgba(255, 126, 179, 0.3);
-    color: #f2eff5;
+    background: rgba(201, 168, 124, 0.25);
+    color: #ece7df;
 }
 
 /* ---- Scrollbar ---- */
-::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: #09090b; }
-::-webkit-scrollbar-thumb { background: #1f1b24; border-radius: 10px; }
-::-webkit-scrollbar-thumb:hover { background: #c4a882; }
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: #080808; }
+::-webkit-scrollbar-thumb { background: #2a2824; border-radius: 10px; }
 
-/* ---- Gradient Text ---- */
-.gradient-text {
-    color: #c4a882;
-}
-
-/* ---- Cursor Glow ---- */
-.cursor-glow {
-    position: fixed;
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(196, 168, 130, 0.04) 0%, rgba(196, 168, 130, 0.015) 40%, transparent 70%);
-    pointer-events: none;
-    z-index: 1;
-    transform: translate(-50%, -50%);
-    transition: opacity 0.3s ease;
-    opacity: 0;
-}
-
-.cursor-glow.active {
-    opacity: 1;
-}
-
-@media (max-width: 768px) {
-    .cursor-glow { display: none; }
-}
-
-/* ---- Floating Gradient Orbs ---- */
-.orbs-container {
+/* ---- Film Grain Overlay ---- */
+.grain {
     position: fixed;
     inset: 0;
+    z-index: 9999;
     pointer-events: none;
-    z-index: 0;
-    overflow: hidden;
-}
-
-.orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(120px);
-    opacity: 0.06;
-}
-
-.orb-1 {
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, #c4a882, transparent 70%);
-    top: -200px;
-    right: -200px;
-    animation: orbFloat1 25s ease-in-out infinite;
-}
-
-.orb-2 {
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, #c4a882, transparent 70%);
-    bottom: 30%;
-    left: -250px;
-    animation: orbFloat2 30s ease-in-out infinite;
-}
-
-.orb-3 {
-    width: 350px;
-    height: 350px;
-    background: radial-gradient(circle, #c4a882, transparent 70%);
-    bottom: -100px;
-    right: 20%;
-    animation: orbFloat3 20s ease-in-out infinite;
-}
-
-@keyframes orbFloat1 {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    33% { transform: translate(-80px, 60px) scale(1.1); }
-    66% { transform: translate(40px, -40px) scale(0.9); }
-}
-
-@keyframes orbFloat2 {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    33% { transform: translate(60px, -50px) scale(0.95); }
-    66% { transform: translate(-30px, 80px) scale(1.05); }
-}
-
-@keyframes orbFloat3 {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(-50px, -60px) scale(1.1); }
-}
-
-/* ---- Loading Screen ---- */
-.loader {
-    position: fixed;
-    inset: 0;
-    background: #09090b;
-    z-index: 99999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                visibility 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.loader.loaded {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-
-.loader-inner {
-    text-align: center;
-}
-
-.loader-text {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #c4a882;
-    display: block;
-    margin-bottom: 1.5rem;
-}
-
-.loader-bar {
-    width: 120px;
-    height: 2px;
-    background: rgba(255, 255, 255, 0.06);
-    border-radius: 10px;
-    overflow: hidden;
-    margin: 0 auto;
-}
-
-.loader-fill {
-    width: 0%;
-    height: 100%;
-    background: #c4a882;
-    border-radius: 10px;
-    animation: loaderFill 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes loaderFill {
-    0% { width: 0%; }
-    100% { width: 100%; }
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 256px;
 }
 
 /* ---- Navigation ---- */
-.nav-link {
-    position: relative;
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: #766f82;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    padding: 4px 0;
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 1.5px;
-    background: #c4a882;
-    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    border-radius: 10px;
-}
-
-.nav-link:hover { color: #f2eff5; }
-.nav-link:hover::after { width: 100%; }
-
 .nav-scrolled {
-    background: rgba(7, 6, 8, 0.85);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    background: rgba(8, 8, 8, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 }
 
 /* ---- Mobile Menu ---- */
 .mobile-menu {
     position: fixed;
     inset: 0;
-    background: rgba(7, 6, 8, 0.97);
-    backdrop-filter: blur(40px);
+    background: rgba(8, 8, 8, 0.98);
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 40;
 }
 
@@ -209,19 +53,8 @@
     pointer-events: all;
 }
 
-.mobile-link {
-    color: #766f82;
-    transition: color 0.3s, transform 0.3s;
-    display: inline-block;
-}
-
-.mobile-link:hover {
-    color: #c4a882;
-    transform: translateX(10px);
-}
-
 .menu-active .menu-line:first-child {
-    transform: rotate(45deg) translate(2px, 3px);
+    transform: rotate(45deg) translate(1px, 2px);
     width: 1.25rem;
 }
 
@@ -231,75 +64,26 @@
     margin-left: 0;
 }
 
-/* ---- Hero Animations ---- */
-.hero-reveal {
+/* ---- Hero Fade In ---- */
+.fade-in {
     opacity: 0;
-    transform: translateY(40px);
-    animation: heroReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transform: translateY(20px);
+    animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-@keyframes heroReveal {
+@keyframes fadeIn {
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-.hero-image-wrapper {
-    opacity: 0;
-    transform: translateY(60px) scale(0.95);
-    animation: heroImageReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
-}
-
-@keyframes heroImageReveal {
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-/* Scroll line animation */
-.scroll-line {
-    animation: scrollPulse 2s ease-in-out infinite;
-}
-
-@keyframes scrollPulse {
-    0%, 100% { opacity: 0.3; transform: scaleY(0.6); transform-origin: top; }
-    50% { opacity: 1; transform: scaleY(1); transform-origin: top; }
-}
-
-/* ---- Marquee ---- */
-.marquee-track {
-    display: flex;
-    width: max-content;
-    animation: marquee 30s linear infinite;
-}
-
-.marquee-content {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    padding-right: 2rem;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #766f82;
-    white-space: nowrap;
-}
-
-@keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-
 /* ---- Scroll Reveal ---- */
 .reveal {
     opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(30px);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal.revealed {
@@ -307,78 +91,7 @@
     transform: translateY(0);
 }
 
-/* ---- Glass Cards ---- */
-.glass-card {
-    position: relative;
-    border-radius: 1rem;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(10px);
-    overflow: hidden;
-    transition: border-color 0.4s, transform 0.4s;
-}
-
-.glass-card:hover {
-    border-color: rgba(196, 168, 130, 0.2);
-    transform: translateY(-4px);
-}
-
-.glass-card-glow {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 50% 0%, rgba(196, 168, 130, 0.05) 0%, transparent 60%);
-    opacity: 0;
-    transition: opacity 0.4s;
-}
-
-.glass-card:hover .glass-card-glow {
-    opacity: 1;
-}
-
-/* ---- Show Row Hover ---- */
-.show-row-bg {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, rgba(196, 168, 130, 0.04) 0%, transparent 100%);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.show-row:hover .show-row-bg {
-    transform: scaleX(1);
-}
-
-/* ---- Stagger Animation ---- */
-.reveal-stagger {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.reveal-stagger.revealed {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 /* ---- Form ---- */
-input:focus, textarea:focus {
-    caret-color: #c4a882;
-}
-
-/* ---- Gallery Drag ---- */
-.gallery-container {
-    overflow-x: auto;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-.gallery-container::-webkit-scrollbar {
-    display: none;
-}
-
-/* ---- Responsive ---- */
-@media (max-width: 768px) {
-    .orb { opacity: 0.08; }
+input:focus {
+    caret-color: #c9a87c;
 }
