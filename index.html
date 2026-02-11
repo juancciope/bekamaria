@@ -193,20 +193,18 @@
     </div>
 
     <!-- ===== MUSIC / LATEST RELEASE ===== -->
-    <section id="music" class="py-28 md:py-40 relative">
-        <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
-            <div class="grid md:grid-cols-12 gap-12 md:gap-16 items-center">
-                <!-- Left: Video -->
-                <div class="md:col-span-7 reveal">
-                    <div class="relative rounded-xl overflow-hidden shadow-2xl shadow-black/30">
-                        <div class="relative aspect-video bg-bg-2 rounded-xl overflow-hidden">
-                            <iframe class="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/mhRWuRCZ8AM?si=GOSAIDu6nekW530M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                </div>
+    <section id="music" class="py-28 md:py-40 relative overflow-hidden">
+        <!-- Background Video -->
+        <div class="absolute inset-0 z-0">
+            <video class="w-full h-full object-cover" autoplay muted loop playsinline>
+                <source src="https://2a3t9apw8sf7si3q.public.blob.vercel-storage.com/Video/Bekah%20Jayne%20at%20the%20Belmont%20University%20R%26B%20Showcase%202024%20-%20Bekah%20Jayne%20%28720p%2C%20h264%29.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-bg/70"></div>
+        </div>
 
-                <!-- Right: Info -->
-                <div class="md:col-span-5 reveal">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
+            <div class="max-w-xl">
+                <div class="reveal">
                     <p class="text-xs tracking-[0.4em] uppercase text-rose mb-4 font-medium">Now Playing</p>
                     <h2 class="font-display text-4xl md:text-5xl font-bold leading-tight">Latest<br><span class="italic font-normal text-txt-2">Release</span></h2>
 
@@ -322,23 +320,6 @@
                         </p>
                     </div>
 
-                    <!-- Two Small Images -->
-                    <div class="grid grid-cols-2 gap-4 reveal">
-                        <div class="overflow-hidden rounded-xl group">
-                            <img
-                                src="https://bekahjayne.com/wp-content/uploads/2026/01/yqnC4u0w-768x1152.jpeg"
-                                alt="Béka Maria"
-                                class="w-full object-cover aspect-square group-hover:scale-110 transition-transform duration-700"
-                            >
-                        </div>
-                        <div class="overflow-hidden rounded-xl group">
-                            <img
-                                src="https://bekahjayne.com/wp-content/uploads/2026/01/KZssp7Zw-768x1152.jpeg"
-                                alt="Béka Maria"
-                                class="w-full object-cover aspect-square group-hover:scale-110 transition-transform duration-700"
-                            >
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -359,10 +340,6 @@
         <div class="gallery-container" id="gallery-scroll">
             <div class="gallery-track flex gap-6 px-6 lg:px-12 cursor-grab active:cursor-grabbing">
                 <div class="gallery-item flex-shrink-0 w-[300px] md:w-[400px] relative group overflow-hidden rounded-2xl">
-                    <img src="https://bekahjayne.com/wp-content/uploads/2024/04/Shadows10-4.24-MM-768x1151.jpg" alt="Béka Maria" class="w-full aspect-[3/4] object-cover group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </div>
-                <div class="gallery-item flex-shrink-0 w-[300px] md:w-[400px] relative group overflow-hidden rounded-2xl">
                     <img src="https://bekahjayne.com/wp-content/uploads/2026/01/yqnC4u0w-768x1152.jpeg" alt="Béka Maria" class="w-full aspect-[3/4] object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
@@ -372,10 +349,6 @@
                 </div>
                 <div class="gallery-item flex-shrink-0 w-[300px] md:w-[400px] relative group overflow-hidden rounded-2xl">
                     <img src="https://bekahjayne.com/wp-content/uploads/2026/01/n_Gkpjxg-768x1152.jpeg" alt="Béka Maria" class="w-full aspect-[3/4] object-cover group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </div>
-                <div class="gallery-item flex-shrink-0 w-[300px] md:w-[400px] relative group overflow-hidden rounded-2xl">
-                    <img src="https://bekahjayne.com/wp-content/uploads/2026/01/Tkl4Qkow-683x1024.jpeg" alt="Béka Maria" class="w-full aspect-[3/4] object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
             </div>
@@ -397,8 +370,7 @@
                 "Music for the ones who
                 <span class="text-accent font-medium not-italic">feel too much</span>,
                 <span class="text-accent font-medium not-italic">want too much</span>, and are done
-                <span class="text-accent font-medium not-italic">apologizing</span>
-                for it."
+                <span class="text-accent font-medium not-italic">apologizing&nbsp;for&nbsp;it</span>."
             </p>
         </div>
     </section>
